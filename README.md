@@ -6,7 +6,13 @@ Lint is a simple command line tool used for multi-language linting.
 
 **Example:**
 
-```lint --type=csv ~/Downloads/example.csv```
+```$ lint --type=csv ~/Downloads/example.csv```
+
+or 
+
+```$ lint --type=python ~/Downloads/example.py```
+
+etc...
 
 Overview
 =======
