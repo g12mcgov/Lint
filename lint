@@ -1,0 +1,68 @@
+#!/bin/bash
+
+# Check dependencies
+function check_dependencies {
+    # Check csv
+    if ! hash csvlint 2>/dev/null; then
+        go get github.com/Clever/csvlint/cmd/csvlint
+    fi
+
+    # Check yaml-lint
+    if ! hash yaml-lint 2>/dev/null; then
+        sudo gem install yaml-lint
+    fi
+
+    # Check pylint
+    if ! hash yaml-lint 2>/dev/null; then
+        sudo pip install pylint
+    fi
+
+    # Check jsonlint
+    if ! hash yaml-lint 2>/dev/null; then
+        sudo npm install jsonlint -g
+    fi
+
+    # Check tidy-html5
+    if ! hash tidy 2>/dev/null; then
+        brew install tidy-html5
+    fi
+}
+
+check_dependencies
+
+for i in "$@"
+do
+case $i in
+    -t=*|--type=*)
+    TYPE="${i#*=}"
+    shift
+    ;;
+
+    *)
+    echo "Must specify file type --type"
+    ;;
+    
+esac
+done
+
+case $TYPE in
+    "csv")
+	csvlint "$1"
+        ;;
+    "yaml")
+	yaml-lint "$1"
+        ;;
+    "python")
+        pylint "$1"
+        ;;
+    "json")
+        jsonlint "$1"
+        ;;
+    "html")
+        tidy "$1"
+        ;;
+    *)
+	echo "Must specify file type and file (e.g. lint --type=csv ~/path/to/file.csv";
+	exit 1
+	;;
+esac
