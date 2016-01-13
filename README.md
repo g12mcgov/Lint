@@ -2,11 +2,11 @@
 
 Lint is a simple command line tool used for multi-language linting. 
 
-![demo](https://www.dropbox.com/s/mi3kghg2evmdqa3/demo.gif?dl=0)
+![demo](http://i1158.photobucket.com/albums/p618/g12mcgov/demo_2.gif)
 
 **Example:**
 
-```lint --type=csv ~/Downloads/exampke.csv```
+```lint --type=csv ~/Downloads/example.csv```
 
 Overview
 =======
