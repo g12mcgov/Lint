@@ -37,4 +37,8 @@ It's easy to add another linter, via adding a block to the following case statem
 Installing
 =======
 
-Download the `lint` script and 
+Download and install the `lint` script via:
+
+```bash curl -L https://github.com/g12mcgov/Lint/raw/master/lint > lint && mv lint /usr/local/bin/lint && chmod +x /usr/local/bin/lint```
+
+(only works for Unix based systems)
